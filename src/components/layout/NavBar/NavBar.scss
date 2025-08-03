@@ -1,0 +1,31 @@
+.navbar {
+    box-shadow: var(--shadow);
+    padding: 0.8rem 0;
+    
+    .navbar-brand {
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .nav-link {
+        position: relative;
+        font-weight: 500;
+        margin: 0 0.5rem;
+        
+        &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s;
+        }
+        
+        &:hover::after,
+        &.active::after {
+        width: 100%;
+        }
+    }
+}
