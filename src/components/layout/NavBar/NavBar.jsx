@@ -26,13 +26,13 @@ const NavBar = () => {
         <Container>
             <Navbar.Brand as={Link} to="/">
             <img
-                src="/logo.svg"
+                src="/images/logo.PNG"
                 width="40"
                 height="40"
                 className="d-inline-block align-top me-2"
-                alt="TechShop Logo"
+                alt="the-industriales Logo"
             />
-            TechShop
+            the industriales
             </Navbar.Brand>
             
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
