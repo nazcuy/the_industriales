@@ -14,7 +14,7 @@ const ItemListContainer = ({ saludo }) => {
   return (
     <div className="item-list-container">
       <h2 className="bienvenida">{saludo}</h2>
-      <p className="bienvenida-subtit">Explora nuestro catálogo de productos</p>
+      <p className="bienvenida-subtit">Explorá nuestro catálogo de productos</p>
 
       <div className="fila fila-3">
         <img src={pedidos1} alt="Pedidos 1" />
