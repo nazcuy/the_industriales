@@ -10,3 +10,14 @@
   padding-bottom: 1rem;
   display: inline-block;
 }
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.productos {
+  background: var(--light-gray);
+  border-radius: 5px;
+}

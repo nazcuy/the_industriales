@@ -4,7 +4,13 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <div className="item-list-container">
       <h2 className="welcome-message">{greeting}</h2>
-      {/* Futuro catálogo irá aquí */}
+      <p className="welcome-subtext">Explora nuestro catálogo de productos</p>
+        <div className="productos-grid">
+          <div className="productos"></div>
+          <div className="productos"></div>
+          <div className="productos"></div>
+          <div className="productos"></div>
+        </div>
     </div>
   );
 };
