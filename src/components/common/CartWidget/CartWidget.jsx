@@ -1,10 +1,13 @@
 import React from 'react';
+import { TiShoppingCart } from "react-icons/ti";
 
-const CartWidget = () => {
+const CartWidget = ({ cantItems }) => {
   return (
     <div className="cart-widget">
-      <span role="img" aria-label="Carrito">🛒</span>
-      <span className="cart-count">0</span>
+      <TiShoppingCart className="cart-icon" />
+      {cantItems > 0 && (
+        <span className="cart-count">{cantItems}</span>
+      )}
     </div>
   );
 };

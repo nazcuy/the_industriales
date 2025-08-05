@@ -1,12 +1,24 @@
 .cart-widget {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+  transition: background-color 0.2s;
+}
+
+.cart-widget:hover {
+  background-color: var(--light-gray);
+}
+
+.cart-icon {
+  font-size: 50px;
+  color: #000;
 }
 
 .cart-count {
-  background-color: #ff5722;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--accent);
   color: white;
   border-radius: 50%;
   width: 22px;
@@ -14,5 +26,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
