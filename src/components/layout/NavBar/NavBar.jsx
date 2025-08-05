@@ -1,60 +1,23 @@
-import React, { useState } from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import CartWidget from '../../common/CartWidget/CartWidget';
-import './NavBar.scss';
+import React from 'react';
+import CartWidget from '../../common/CartWidget/CartWidget.jsx';
 
-const NavBar = () => {
-    const [expanded, setExpanded] = useState(false);
-
-    const navLinks = [
-        { path: '/', label: 'Inicio' },
-        { path: '/products', label: 'Productos' },
-        { path: '/categories', label: 'Categorías' },
-        { path: '/contact', label: 'Contacto' },
-    ];
-
-    return (
-        <Navbar 
-        bg="dark" 
-        variant="dark" 
-        expand="lg" 
-        fixed="top"
-        expanded={expanded}
-        onToggle={setExpanded}
-        >
-        <Container>
-            <Navbar.Brand as={Link} to="/">
-            <img
-                src="/images/logo.PNG"
-                width="40"
-                height="40"
-                className="d-inline-block align-top me-2"
-                alt="the-industriales Logo"
-            />
-            the industriales
-            </Navbar.Brand>
-            
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            
-            <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-                {navLinks.map((link) => (
-                <Nav.Link 
-                    key={link.path} 
-                    as={Link} 
-                    to={link.path}
-                    onClick={() => setExpanded(false)}
-                >
-                    {link.label}
-                </Nav.Link>
-                ))}
-            </Nav>
-            <CartWidget itemCount={3} />
-            </Navbar.Collapse>
-        </Container>
-        </Navbar>
-    );
+const Navbar = () => {
+  return (
+    <nav className="navbar">
+      <div className="logo">
+        <a href="/">MiTienda</a>
+      </div>
+      
+      <ul className="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/productos">Productos</a></li>
+        <li><a href="/ofertas">Ofertas</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+      
+      <CartWidget />
+    </nav>
+  );
 };
 
-export default NavBar;
+export default Navbar;

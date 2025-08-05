@@ -1,20 +1,12 @@
 import React from 'react';
-import { Badge } from 'react-bootstrap';
-import { BsCart3 } from 'react-icons/bs';
-import './CartWidget.scss'
 
-
-const CartWidget = ({ itemCount = 0}) => {
-    return (
-        <div className="cart-widget position-relative">
-            <BsCart3 size={24} className="cart-icon" />                  
-            {itemCount > 0 && (
-                <Badge bg="danger" pill className="cart-badge">
-                    {itemCount}
-                </Badge>
-            )}
-        </div>
-        );
+const CartWidget = () => {
+  return (
+    <div className="cart-widget">
+      <span role="img" aria-label="Carrito">🛒</span>
+      <span className="cart-count">0</span>
+    </div>
+  );
 };
 
 export default CartWidget;
