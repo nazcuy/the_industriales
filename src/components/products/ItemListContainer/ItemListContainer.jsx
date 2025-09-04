@@ -1,38 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import pedidos1 from '../../../assets/images/pedidos/1.jpg';
 import pedidos2 from '../../../assets/images/pedidos/2.jpg';
 import pedidos3 from '../../../assets/images/pedidos/3.jpg';
-import tasas1 from '../../../assets/images/tasas/1.jpg';
-import tasas2 from '../../../assets/images/tasas/2.jpg';
-import tasas3 from '../../../assets/images/tasas/3.jpg';
+import tazas1 from '../../../assets/images/tazas/1.jpg';
+import tazas2 from '../../../assets/images/tazas/2.jpg';
+import tazas3 from '../../../assets/images/tazas/3.jpg';
 import remeras1 from '../../../assets/images/remeras/1.jpg';
 import remeras2 from '../../../assets/images/remeras/2.jpg';
 import remeras3 from '../../../assets/images/remeras/3.jpg';
 import './ItemListContainer.scss';
+import ItemList from '../ItemList/ItemList';
+/*/import Item from '../Item/Item'; */
+
+const productos = [
+  { id: 1, nombre: 'Pedido 1', categoria: 'pedidos', imagen: pedidos1 },
+  { id: 2, nombre: 'Pedido 2', categoria: 'pedidos', imagen: pedidos2 },
+  { id: 3, nombre: 'Pedido 3', categoria: 'pedidos', imagen: pedidos3 },
+  { id: 4, nombre: 'Taza 1', categoria: 'tazas', imagen: tazas1 },
+  { id: 5, nombre: 'Taza 2', categoria: 'tazas', imagen: tazas2 },
+  { id: 6, nombre: 'Taza 3', categoria: 'tazas', imagen: tazas3 },
+  { id: 7, nombre: 'Remera 1', categoria: 'remeras', imagen: remeras1 },
+  { id: 8, nombre: 'Remera 2', categoria: 'remeras', imagen: remeras2 },
+  { id: 9, nombre: 'Remera 3', categoria: 'remeras', imagen: remeras3 },
+];
 
 const ItemListContainer = ({ saludo }) => {
-  return (
+  const { categoryId } = useParams();
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    new Promise((resolve) => {
+      setTimeout(() => {
+        if (categoryId) {
+          resolve(productos.filter(p => p.categoria === categoryId));
+        } else {
+          resolve(productos);
+        }
+      }, 500);
+    }).then(setItems);
+  }, [categoryId]);
+
+    return (
     <div className="item-list-container">
       <h2 className="bienvenida">{saludo}</h2>
       <p className="bienvenida-subtit">Explorá nuestro catálogo de productos</p>
-
-      <div className="fila fila-3">
-        <img src={pedidos1} alt="Pedidos 1" />
-        <img src={pedidos2} alt="Pedidos 2" />
-        <img src={pedidos3} alt="Pedidos 3" />
-      </div>
-
-      <div className="fila fila-2">
-        <img src={tasas1} alt="Tasas 1" />
-        <img src={tasas2} alt="Tasas 2" />
-        <img src={tasas3} alt="Tasas 3" />
-      </div>
-
-      <div className="fila fila-3">
-        <img src={remeras1} alt="Remeras 1" />
-        <img src={remeras2} alt="Remeras 2" />
-        <img src={remeras3} alt="Remeras 3" />
-      </div>
+      <ItemList items={items} />
     </div>
   );
 };
