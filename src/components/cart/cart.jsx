@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCart } from '../../components/context/CartContext';
 import './cart.scss';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { cart, removeItem, clearCart, getTotalPrice } = useCart();
@@ -41,12 +42,15 @@ const Cart = () => {
       
       <div className="cart-actions">
         <button onClick={clearCart} className="clear-btn">
-          Vaciar Carrito
-        </button>
-        <button className="checkout-btn">
-          Finalizar Compra
+            Vaciar Carrito
         </button>
       </div>
+      <div className="cart-actions">
+        <Link to="/checkout" className="checkout-btn">
+            Finalizar Compra
+        </Link>
+      </div>
+
     </div>
   );
 };

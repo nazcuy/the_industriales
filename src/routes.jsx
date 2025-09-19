@@ -3,6 +3,7 @@ import App from './App';
 import ItemListContainer from './components/products/ItemListContainer/ItemListContainer.jsx';
 import ItemDetailContainer from './components/products/ItemDetailContainer.jsx';
 import Cart from './components/cart/cart.jsx';
+import CheckoutForm from './components/checkoutForm/checkoutForm.jsx';
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
       { path: '/categoria/:categoryId', element: <ItemListContainer saludo="¡Bienvenido a the industriales!" /> },
       { path: '/item/:itemId', element: <ItemDetailContainer /> },
       { path: '/cart', element: <Cart /> },
+      { path: '/checkout', element: <CheckoutForm /> },
     ],
   },
 ]);
