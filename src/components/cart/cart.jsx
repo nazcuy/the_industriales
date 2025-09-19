@@ -11,6 +11,9 @@ const Cart = () => {
       <div className="cart-empty">
         <h2>Tu carrito está vacío</h2>
         <p>¡Agrega algunos productos!</p>
+        <Link to="/" className="continue-shopping">
+          Continuar comprando
+        </Link>
       </div>
     );
   }

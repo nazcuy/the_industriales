@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useCart } from '../../components/context/CartContext';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import db from '../../services/firebase';
 import './checkoutForm.scss';
 
 const CheckoutForm = () => {
@@ -20,16 +22,27 @@ const CheckoutForm = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      const newOrderId = Math.random().toString(36).substr(2, 9).toUpperCase();
-      setOrderId(newOrderId);
+    try {
+      const order = {
+        buyer: userData,
+        items: cart,
+        total: getTotalPrice(),
+        date: serverTimestamp()
+      };
+
+      const docRef = await addDoc(collection(db, 'orders'), order);
+      setOrderId(docRef.id);
       clearCart();
+    } catch (error) {
+      console.error('Error al crear la orden:', error);
+      alert('Hubo un error al procesar tu compra. Por favor, intenta nuevamente.');
+    } finally {
       setLoading(false);
-    }, 2000);
+    }
   };
 
   if (orderId) {
