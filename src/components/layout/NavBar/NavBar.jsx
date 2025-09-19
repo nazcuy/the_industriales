@@ -26,8 +26,10 @@ const Navbar = () => {
             </li>
         ))
         }
-      </ul>      
-      <CartWidget />
+      </ul>
+      <Link to="/cart">
+        <CartWidget />
+      </Link>
     </nav>
   );
 };
