@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import CartWidget from '../../common/CartWidget/CartWidget';
 import logo from '../../../assets/images/logo.png';
+import './NavBar.scss';
 
 
 const Navbar = () => {
@@ -14,22 +15,30 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link to="/">
+        <NavLink to="/">
+          {({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           <img src={logo} alt="Logo the_industriales" style={{ height: '120px' }} />
-        </Link>
+        </NavLink>
       </div>
       
       <ul className="nav-links">
-        {categorias.map((categoria) => (
+            {categorias.map((categoria) => (
             <li key={categoria.id}>
-                <Link to={`/categoria/${categoria.id}`}>{categoria.name}</Link>
+                <NavLink 
+                  to={`/categoria/${categoria.id}`}
+                  className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+                >
+                  {categoria.name}
+                </NavLink>
             </li>
-        ))
-        }
+        ))}
       </ul>
-      <Link to="/cart">
+
+      <NavLink to="/cart"
+      className={({ isActive }) => isActive ? 'cart-link active' : 'cart-link'}
+      >
         <CartWidget />
-      </Link>
+      </NavLink>
     </nav>
   );
 };
