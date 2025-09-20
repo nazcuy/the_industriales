@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDgP_DUBV-4v_Vo4YJrHRjqFkv-8vKA26k",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "clave-temporal-por-seguridad",
   authDomain: "the-industriales.firebaseapp.com",
   projectId: "the-industriales",
   storageBucket: "the-industriales.firebasestorage.app",
