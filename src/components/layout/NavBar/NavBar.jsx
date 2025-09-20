@@ -16,7 +16,6 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logo">
         <NavLink to="/">
-          {({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           <img src={logo} alt="Logo the_industriales" style={{ height: '120px' }} />
         </NavLink>
       </div>
