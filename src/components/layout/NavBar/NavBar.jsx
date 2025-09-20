@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CartWidget from '../../common/CartWidget/CartWidget';
-import logo from '../../../assets/images/logo.png';
 import './NavBar.scss';
 
 
@@ -16,7 +15,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logo">
         <NavLink to="/">
-          <img src={logo} alt="Logo the_industriales" style={{ height: '120px' }} />
+          <img src="/images/logo.png" alt="Logo the_industriales" style={{ height: '120px' }} />
         </NavLink>
       </div>
       
