@@ -1,0 +1,159 @@
+.cart {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 3rem;
+  
+  h2 {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: #888;
+    margin-bottom: 2rem;
+  }
+  
+  .continue-shopping {
+    display: inline-block;
+    background-color: #2c5530;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    
+    &:hover {
+      background-color: #1e3a23;
+    }
+  }
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .item-info {
+    flex-grow: 1;
+    
+    h3 {
+      margin: 0 0 0.5rem 0;
+      color: #333;
+    }
+    
+    p {
+      margin: 0.3rem 0;
+      color: #666;
+    }
+    
+    .remove-btn {
+      background-color: #ff4444;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      
+      &:hover {
+        background-color: #cc0000;
+      }
+    }
+  }
+}
+
+.cart-total {
+  text-align: right;
+  margin: 2rem 0;
+  padding-top: 1rem;
+  border-top: 2px solid #eee;
+  
+  h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+  }
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+  
+  .clear-btn, .checkout-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .clear-btn {
+    background-color: #ff4444;
+    color: white;
+    
+    &:hover {
+      background-color: #cc0000;
+    }
+  }
+  
+  .checkout-btn {
+    background-color: #2c5530;
+    color: white;
+    
+    &:hover {
+      background-color: #1e3a23;
+    }
+  }
+}
+
+// Estilos responsivos
+@media (max-width: 768px) {
+  .cart {
+    padding: 1rem;
+  }
+  
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+    
+    .item-info {
+      text-align: center;
+    }
+  }
+  
+  .cart-actions {
+    flex-direction: column;
+    
+    .clear-btn, .checkout-btn {
+      width: 100%;
+    }
+  }
+}
